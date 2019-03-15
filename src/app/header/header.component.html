@@ -1,0 +1,15 @@
+<mat-toolbar color="warn">
+  <a mat-button>Dashboard</a>
+  <a mat-button>Generate form</a>
+  <a mat-button>Settings</a>
+  <div class="spacer"></div>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <span>miabojcic@gmail.com</span>
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" xPosition="before">
+    <button mat-menu-item>
+      Logout
+    </button>
+  </mat-menu>
+</mat-toolbar>
