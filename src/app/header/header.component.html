@@ -1,14 +1,14 @@
 <mat-toolbar color="warn">
-  <a mat-button>Dashboard</a>
-  <a mat-button>Generate form</a>
-  <a mat-button>Settings</a>
+  <a mat-button routerLink="/dashboard">Dashboard</a>
+  <a mat-button routerLink="/generate-form">Generate form</a>
+  <a mat-button routerLink="/settings">Settings</a>
   <div class="spacer"></div>
   <button mat-button [matMenuTriggerFor]="menu">
     <span>miabojcic@gmail.com</span>
     <mat-icon>arrow_drop_down</mat-icon>
   </button>
   <mat-menu #menu="matMenu" xPosition="before">
-    <button mat-menu-item>
+    <button mat-menu-item routerLink="/login">
       Logout
     </button>
   </mat-menu>
