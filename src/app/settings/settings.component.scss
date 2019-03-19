@@ -1,11 +1,13 @@
-.container{
+.container {
   display: flex;
   flex-direction: column;
   margin: 50px 50px;
 }
 
-.settings-input{
-  display: flex;
-  flex-direction: column;
+mat-form-field {
+  margin: 0 10px;
+}
 
+.btn-submit {
+  text-align: center;
 }
