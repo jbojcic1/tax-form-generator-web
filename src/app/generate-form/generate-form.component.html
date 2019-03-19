@@ -1,3 +1,14 @@
-<p>
-  generate-form works!
-</p>
+<div class="container">
+  <form>
+    <mat-form-field>
+      <mat-label>Select an option</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option value="salary">Salary</mat-option>
+        <mat-option value="dividend">Dividend</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <form class="form-salary" *ngIf="selected==='salary'">Salary</form>
+  <form class="form-dividend" *ngIf="selected==='dividend'">Dividend</form>
+</div>
+
