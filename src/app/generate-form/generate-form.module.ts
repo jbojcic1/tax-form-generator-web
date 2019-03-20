@@ -3,7 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { GenerateFormRoutingModule } from './generate-form-routing.module';
 import { GenerateFormComponent } from './generate-form.component';
-import { MatFormFieldModule, MatSelectModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatNativeDateModule,
+  MatSelectModule
+} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,7 +20,11 @@ import { FormsModule } from '@angular/forms';
     GenerateFormRoutingModule,
     MatFormFieldModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatButtonModule
   ]
 })
 export class GenerateFormModule { }
