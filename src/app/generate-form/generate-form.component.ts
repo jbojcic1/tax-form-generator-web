@@ -13,10 +13,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./generate-form.component.scss']
 })
 export class GenerateFormComponent implements OnInit {
-  formDatePicker: string;
-  paymentDatePicker: string;
-  startDatePicker: string;
-  endDatePicker: string;
   date = new FormControl(new Date());
   service: Settings;
   amount: number;
