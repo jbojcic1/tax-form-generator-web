@@ -1,4 +1,3 @@
-<script src="settings.ts"></script>
 <form #form="ngForm" class="container" (ngSubmit)="form.valid && onSubmit(form.value)">
   <div class="personal-settings">
     <h2>Personal</h2>
@@ -95,26 +94,32 @@
       </mat-form-field>
       <mat-form-field>
         <input name="salaryTax" matInput type="number" placeholder="Tax" required [ngModel]="settings.salary.salaryTax">
+        <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Tax is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
         <input name="healthInsuranceContribution" matInput type="number" placeholder="Health Insurance Contribution" required [ngModel]="settings.salary.healthInsuranceContribution">
+        <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Health Insurance Contribution is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
         <input name="workSafetyContribution" matInput type="number" placeholder="Work Safety Contribution" required [ngModel]="settings.salary.workSafetyContribution">
+        <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Work Safety Contribution is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
         <input name="employmentContribution" matInput type="number" placeholder="Employment Contribution" required [ngModel]="settings.salary.employmentContribution">
+        <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Employment Contribution is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
         <input name="pensionPillar1Contribution" matInput type="number" placeholder="Pension Pillar 1 Contribution" required [ngModel]="settings.salary.pensionPillar1Contribution">
+        <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Pension Pillar 1 Contribution is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
         <input name="pensionPillar2Contribution" matInput type="number" placeholder="Pension Pillar 2 Contribution" required [ngModel]="settings.salary.pensionPillar2Contribution">
+        <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Pension Pillar 2 Contribution is required.</mat-error>
       </mat-form-field>
     </div>
@@ -125,6 +130,7 @@
     <div class="settings-input">
       <mat-form-field>
         <input name="dividendTax" matInput type="number" placeholder="Tax" required [ngModel]="settings.dividend.dividendTax">
+        <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Tax is required.</mat-error>
       </mat-form-field>
     </div>
