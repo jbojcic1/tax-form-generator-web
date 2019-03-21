@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
-import { DividendJOPPD, SalaryJOPPD } from './generate-form';
+import { TaxForm } from './generate-form';
 
 @Injectable ({
   providedIn: 'root'
 })
 export class  GenerateFormService {
-  private forms: (SalaryJOPPD | DividendJOPPD)[] = [];
+  private forms: TaxForm[] = [];
 
-  saveForm(formToSave: SalaryJOPPD | DividendJOPPD) {
+  saveForm(formToSave: TaxForm) {
     this.forms.push(formToSave);
+  }
+  getForms(): TaxForm[] {
+    return this.forms;
   }
 }

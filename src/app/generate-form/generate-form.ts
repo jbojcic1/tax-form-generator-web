@@ -1,3 +1,5 @@
+export type TaxForm = DividendJOPPD | SalaryJOPPD;
+
 export interface Form {
   formType: string;
 }
