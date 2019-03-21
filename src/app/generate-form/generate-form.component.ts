@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { SettingsService } from '../settings/settings.service';
 import { Settings } from '../settings/settings';
-import { DividendJOPPD, SalaryJOPPD } from './generate-form';
 import { GenerateFormService } from './generate-form.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { TaxForm } from './generate-form';
 
 @Component({
   selector: 'tfg-generate-form',
@@ -32,7 +32,7 @@ export class GenerateFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(value: DividendJOPPD | SalaryJOPPD) {
+  onSubmit(value: TaxForm) {
     this.generateFormService.saveForm(value);
     this.snackBar.open('Saved successfully.', null, { duration: 3000 });
     this.router.navigateByUrl('/dashboard');
