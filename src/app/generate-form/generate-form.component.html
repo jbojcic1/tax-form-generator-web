@@ -1,3 +1,82 @@
-<p>
-  generate-form works!
-</p>
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="form.valid && onSubmit(form.value)">
+    <mat-form-field>
+      <mat-label>Select form type</mat-label>
+      <mat-select name="formType" ngModel>
+        <mat-option value="SALARY_JOPPD">Salary JOPPD</mat-option>
+        <mat-option value="DIVIDEND_JOPPD">Dividend JOPPD</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <ng-container class="dividend-form" *ngIf="form.value.formType === 'DIVIDEND_JOPPD'">
+      <div class="row">
+        <mat-form-field class="form-date">
+          <input matInput name="formDate" [matDatepicker]="formDatePicker" placeholder="Choose a form date" [ngModel]="date.value">
+          <mat-datepicker-toggle matSuffix [for]="formDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #formDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="payment-date">
+          <input matInput name="paymentDate" [matDatepicker]="paymentDatePicker" placeholder="Choose a payment date" [ngModel]="date.value">
+          <mat-datepicker-toggle matSuffix [for]="paymentDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #paymentDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <input name="amount" matInput type="number" placeholder="Amount" required [ngModel]="amount">
+          <mat-error>Amount is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input name="currency" matInput type="text" placeholder="Currency" required [ngModel]="currency">
+          <mat-error>Currency is required.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="start-date">
+          <input matInput name="startDate" [matDatepicker]="startDatePicker" placeholder="Choose start date" ngModel required>
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="end-date">
+          <input matInput name="endDate" [matDatepicker]="endDatePicker" placeholder="Choose end date" ngModel required>
+          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-container class="salary-form" *ngIf="form.value.formType === 'SALARY_JOPPD'">
+      <div class="row">
+        <mat-form-field class="form-date">
+          <input matInput name="formDate"  [matDatepicker]="formDatePicker" placeholder="Choose a form date" [ngModel]="date.value">
+          <mat-datepicker-toggle matSuffix [for]="formDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #formDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="payment-date">
+          <input matInput name="paymentDate" [matDatepicker]="paymentDatePicker" placeholder="Choose a payment date" [ngModel]="date.value">
+          <mat-datepicker-toggle matSuffix [for]="paymentDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #paymentDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <input name="amount" matInput type="number" placeholder="Amount" required [ngModel]="amount">
+          <mat-error>Amount is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input name="currency" matInput type="text" placeholder="Currency" required [ngModel]="currency">
+          <mat-error>Currency is required.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <input name="salaryMonth" matInput type="text" placeholder="Salary Month" required ngModel #monthFormControl="ngModel" pattern="^(1[0-2]|0[1-9]|[1-9])\/(20\d{2}|19\d{2}|0(?!0)\d|[1-9]\d)$">
+          <mat-error *ngIf="monthFormControl.hasError('required')">Salary Month is required.</mat-error>
+          <mat-error *ngIf="monthFormControl.hasError('pattern')">Salary Month is not valid.</mat-error>
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <div class="btn-submit">
+      <button mat-raised-button color="warn" type="submit" [disabled]="!form.value.formType">Generate</button>
+    </div>
+  </form>
+</div>
+
