@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
+import { RegistrationService } from './registration.service';
+import { User } from './registration';
 
 @Component({
   selector: 'tfg-registration',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private snackBar: MatSnackBar, private router: Router, private registrationService: RegistrationService) { }
 
   ngOnInit() {
+  }
+  onSubmit(value: User) {
+    this.registrationService.saveUser(value);
+    this.snackBar.open('Registered successfully.', null, { duration: 3000 });
+    this.router.navigateByUrl('/login');
   }
 
 }

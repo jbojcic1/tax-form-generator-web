@@ -1,4 +1,36 @@
-<p>
-  registration works!
-</p>
-<button mat-button routerLink="/login">Back</button>
+<form class="container" #form="ngForm" (ngSubmit)="form.valid && onSubmit(form.value)">
+  <h2>Tax form generator</h2>
+  <div class="register-input">
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input name="email" matInput type="email" placeholder="E-mail" required email ngModel #emailFormControl="ngModel">
+      <mat-error *ngIf="emailFormControl.hasError('required')">Company email is required.</mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('email')">Invalid email.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input name="firstName" matInput type="text" placeholder="First Name" required ngModel >
+      <mat-error>First Name is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input name="lastName" matInput type="text" placeholder="Last Name" required ngModel>
+      <mat-error>Last Name is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input name="password" matInput type="password" placeholder="Password" required minlength="6" ngModel #passwordFormControl="ngModel">
+      <mat-error *ngIf="passwordFormControl.hasError('required')">Password is required.</mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('minlength')">Minimum Length is 6.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input name="confirmPassword" matInput type="password" placeholder="Confirm Password" required ngModel #confirmPasswordFormControl="ngModel" pattern="{{passwordFormControl.value}}">
+      <mat-error *ngIf="confirmPasswordFormControl.hasError('required')">Confirm Password is required.</mat-error>
+      <mat-error *ngIf="confirmPasswordFormControl.hasError('pattern')">Password and Confirm Password does not match.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="btn-submit">
+    <button mat-raised-button color="warn" type="submit">Register</button>
+  </div>
+</form>
