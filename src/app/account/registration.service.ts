@@ -11,4 +11,7 @@ export class RegistrationService {
   saveUser(userToSave: User) {
     this.users.push(userToSave);
   }
+  getUsers(): User[] {
+    return this.users;
+  }
 }
