@@ -10,4 +10,7 @@ export class  GenerateFormService {
   saveForm(formToSave: SalaryJOPPD | DividendJOPPD) {
     this.forms.push(formToSave);
   }
+  getForms(): (SalaryJOPPD | DividendJOPPD)[] {
+    return this.forms;
+  }
 }

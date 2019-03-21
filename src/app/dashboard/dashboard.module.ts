@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
+import { MatTableModule } from '@angular/material';
 
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    MatTableModule
   ]
 })
 export class DashboardModule { }
