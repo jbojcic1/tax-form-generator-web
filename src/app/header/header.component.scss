@@ -3,7 +3,10 @@ mat-toolbar a {
   display: flex;
 }
 
-.spacer{
+.spacer {
   flex-grow: 1;
 }
 
+.active-link {
+  color: black;
+}
