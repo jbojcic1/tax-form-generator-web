@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../account/registration';
-import { RegistrationService } from '../account/registration.service';
+import { LoginUser } from './login';
+import { AuthService } from '../core/auth.service';
 
-export interface LoginUser {
-  email: string;
-  password: string;
-}
 
 @Component({
   selector: 'tfg-login',
@@ -15,21 +11,17 @@ export interface LoginUser {
 })
 export class LoginComponent implements OnInit {
 
-  registratedUsers: User[] = [];
   credentialsCorrect = true;
 
-  constructor(private router: Router, private service: RegistrationService) { }
+  constructor(private router: Router, private loginService: AuthService) { }
 
   ngOnInit() {
   }
   onSubmit(value: LoginUser) {
-    this.registratedUsers = this.service.getUsers();
-    const user = this.registratedUsers.find(user => user.email === value.email && user.password === value.password);
-    if (user) {
-      this.credentialsCorrect = true;
+    this.credentialsCorrect = this.loginService.login(value);
+
+    if (this.credentialsCorrect) {
       this.router.navigateByUrl('/dashboard');
-    } else {
-      this.credentialsCorrect = false;
     }
   }
 
