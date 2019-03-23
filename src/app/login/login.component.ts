@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginUser } from './login';
+import { AuthService } from '../core/auth.service';
+
 
 @Component({
   selector: 'tfg-login',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  credentialsCorrect = true;
+
+  constructor(private router: Router, private loginService: AuthService) { }
 
   ngOnInit() {
+  }
+  onSubmit(value: LoginUser) {
+    this.credentialsCorrect = this.loginService.login(value);
+
+    if (this.credentialsCorrect) {
+      this.router.navigateByUrl('/dashboard');
+    }
   }
 
 }

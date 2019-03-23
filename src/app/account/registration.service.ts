@@ -6,9 +6,19 @@ import { User } from './registration';
 })
 
 export class RegistrationService {
-  private users: User[] = [];
+  private users: User[] = [
+    {
+      email: 'mbojcic@gmail.com',
+      firstName: 'Mia',
+      lastName: 'Bojcic',
+      password: '123456'
+    }
+  ];
 
   saveUser(userToSave: User) {
     this.users.push(userToSave);
+  }
+  getUsers(): User[] {
+    return this.users;
   }
 }
