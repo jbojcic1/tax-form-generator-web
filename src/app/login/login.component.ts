@@ -13,12 +13,12 @@ export class LoginComponent implements OnInit {
 
   credentialsCorrect = true;
 
-  constructor(private router: Router, private loginService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
   onSubmit(value: LoginUser) {
-    this.credentialsCorrect = this.loginService.login(value);
+    this.credentialsCorrect = this.authService.login(value);
 
     if (this.credentialsCorrect) {
       this.router.navigateByUrl('/dashboard');
