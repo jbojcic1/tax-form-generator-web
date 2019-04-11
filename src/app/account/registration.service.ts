@@ -1,24 +1,21 @@
 import { Injectable } from '@angular/core';
 import { User } from './registration';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable ({
   providedIn: 'root'
 })
 
 export class RegistrationService {
-  private users: User[] = [
-    {
-      email: 'mbojcic@gmail.com',
-      firstName: 'Mia',
-      lastName: 'Bojcic',
-      password: '123456'
-    }
-  ];
 
-  saveUser(userToSave: User) {
-    this.users.push(userToSave);
+  constructor(private http: HttpClient) {
   }
-  getUsers(): User[] {
-    return this.users;
+
+
+  saveUser(userToSave: User): Observable<void> {
+    return this.http.post<void>('http://localhost:5000/api/accounts', userToSave);
   }
+
+
 }

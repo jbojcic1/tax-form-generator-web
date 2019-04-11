@@ -17,13 +17,15 @@ export class AuthService {
   }
 
   login(currentUser: LoginUser) {
-    const user = this.registrationService.getUsers()
-      .find(x => x.email === currentUser.email && x.password === currentUser.password);
 
-    if (user) {
-      this.loggedInUser = user;
-    }
-
-    return !!user;
+    // const user = this.registrationService.getUsers()
+    //   .find(x => x.email === currentUser.email && x.password === currentUser.password);
+    //
+    // if (user) {
+    //   this.loggedInUser = user;
+    // }
+    //
+    // return !!user;
+    return true;
   }
 }

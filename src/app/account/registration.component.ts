@@ -11,14 +11,22 @@ import { User } from './registration';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private snackBar: MatSnackBar, private router: Router, private registrationService: RegistrationService) { }
+  constructor(private snackBar: MatSnackBar, private router: Router,
+              private registrationService: RegistrationService) { }
 
   ngOnInit() {
   }
+
   onSubmit(value: User) {
-    this.registrationService.saveUser(value);
-    this.snackBar.open('Registered successfully.', null, { duration: 3000 });
-    this.router.navigateByUrl('/login');
+    this.registrationService.saveUser(value).subscribe(
+      () => {
+        this.snackBar.open('Registered successfully.', null, { duration: 3000 });
+        this.router.navigateByUrl('/login');
+      },
+      () => {
+        this.snackBar.open('Error. Failed to add user.', null, { duration: 3000 });
+      }
+    );
   }
 
 }
