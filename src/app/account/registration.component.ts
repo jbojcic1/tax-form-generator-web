@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { RegistrationService } from './registration.service';
-import { User } from './registration';
+import { UserRegistration } from './registration';
 
 @Component({
   selector: 'tfg-registration',
@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(value: User) {
+  onSubmit(value: UserRegistration) {
     this.registrationService.saveUser(value).subscribe(
       () => {
         this.snackBar.open('Registered successfully.', null, { duration: 3000 });

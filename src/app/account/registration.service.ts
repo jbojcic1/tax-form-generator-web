@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { User } from './registration';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserRegistration } from './registration';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable ({
@@ -13,7 +13,7 @@ export class RegistrationService {
   }
 
 
-  saveUser(userToSave: User): Observable<void> {
+  saveUser(userToSave: UserRegistration): Observable<void> {
     return this.http.post<void>('http://localhost:5000/api/accounts', userToSave);
   }
 
