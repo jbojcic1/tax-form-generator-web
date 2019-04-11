@@ -1,7 +1,7 @@
 <form class="container" #form="ngForm" (ngSubmit)="form.valid && onSubmit(form.value)">
   <h2>Tax form generator</h2>
   <div class="login-input">
-    <div class="message" *ngIf="!credentialsCorrect">Email and/or password incorrect</div>
+    <div class="message" *ngIf="showErrorMessage">Email and/or password incorrect</div>
     <mat-form-field appearance="outline">
       <mat-label>E-mail</mat-label>
       <input name="email" matInput type="email" placeholder="E-mail" required email ngModel #emailFormControl="ngModel">

@@ -4,11 +4,11 @@
   <a mat-button routerLink="/settings" routerLinkActive="active-link">Settings</a>
   <div class="spacer"></div>
   <button mat-button [matMenuTriggerFor]="menu">
-    <span>miabojcic@gmail.com</span>
+    <span>{{authService.loggedInUser.firstName}} {{authService.loggedInUser.lastName}}</span>
     <mat-icon>arrow_drop_down</mat-icon>
   </button>
   <mat-menu #menu="matMenu" xPosition="before">
-    <button mat-menu-item routerLink="/login">
+    <button mat-menu-item (click)="authService.logout()">
       Logout
     </button>
   </mat-menu>
