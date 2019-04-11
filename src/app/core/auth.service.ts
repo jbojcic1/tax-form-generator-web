@@ -45,7 +45,7 @@ export class AuthService {
               firstName: decodedAccessToken.firstName,
               lastName: decodedAccessToken.lastName
             };
-            localStorage.setItem('user', JSON.stringify(decodedAccessToken));
+            localStorage.setItem('user', JSON.stringify(this.loggedInUser));
           }
         )
       );
