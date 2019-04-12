@@ -9,6 +9,7 @@ import * as jwt_decode from 'jwt-decode';
 import { JwtToken } from './jwt-token';
 import { User } from './user';
 import { Router } from '@angular/router';
+import { RefreshTokenResponse } from './refresh-token-response';
 
 @Injectable ({
   providedIn: 'root'
@@ -58,4 +59,21 @@ export class AuthService {
     this.loggedInUser = undefined;
     this.router.navigate(['/login']);
   }
+
+  getAccessToken(): string | null {
+    return localStorage.getItem('accessToken');
+  }
+
+  refreshToken(): Observable<RefreshTokenResponse> {
+    const data = { refreshToken: localStorage.getItem('refreshToken') };
+    return this.http.post<RefreshTokenResponse>('http://localhost:5000/api/auth/refresh', data)
+      .pipe(
+        tap(
+          (response: RefreshTokenResponse) => {
+            localStorage.setItem('accessToken', response.accessToken);
+          }
+        )
+      );
+  }
+
 }
