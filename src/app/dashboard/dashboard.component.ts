@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GenerateFormService } from '../generate-form/generate-form.service';
-import { TaxForm } from '../generate-form/generate-form';
+import { Form } from '../generate-form/generate-form';
 
 
 @Component({
@@ -10,15 +10,17 @@ import { TaxForm } from '../generate-form/generate-form';
 })
 export class DashboardComponent implements OnInit {
   displayedColumns: string[];
-  service: TaxForm[];
-  dataSource: TaxForm[];
+  forms: Form[];
 
   constructor( private generateFormService: GenerateFormService) {
-    this.service = this.generateFormService.getForms();
   }
 
   ngOnInit() {
     this.displayedColumns = ['dateGenerated', 'formType', 'amount'];
-    this.dataSource = this.service;
+    this.generateFormService.getForms().subscribe(
+      x => {
+        this.forms = x;
+      }
+    );
   }
 }
