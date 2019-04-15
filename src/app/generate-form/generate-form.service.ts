@@ -10,10 +10,11 @@ export class  GenerateFormService {
 
   constructor(private http: HttpClient) {}
 
-  // saveForm(formToSave: Form) {
-  //   this.forms.push(formToSave);
-  // }
   getForms(): Observable<Form[]> {
     return this.http.get<Form[]>('http://localhost:5000/api/forms');
+  }
+
+  generateForm(value: Form): Observable<void> {
+    return this.http.post<void>(`http://localhost:5000/api/forms/${value.formType}`, value);
   }
 }
