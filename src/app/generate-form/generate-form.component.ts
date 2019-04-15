@@ -24,18 +24,18 @@ export class GenerateFormComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router
   ) {
-    // this.service = this.settingsService.getSettingsInfo();
-    this.amount = this.service.salary.amount;
-    this.currency = this.service.salary.currency;
   }
 
   ngOnInit() {
   }
 
   onSubmit(value: Form) {
-    // this.generateFormService.saveForm(value);
-    this.snackBar.open('Saved successfully.', null, { duration: 3000 });
-    this.router.navigateByUrl('/dashboard');
+    this.generateFormService.generateForm(value).subscribe(
+      () => {
+        this.snackBar.open('Saved successfully.', null, { duration: 3000 });
+        this.router.navigateByUrl('/dashboard');
+      },
+      () => this.snackBar.open('Error. Failed to generate form.', null, { duration: 3000 })
+    );
   }
-
 }
