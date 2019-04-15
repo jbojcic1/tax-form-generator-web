@@ -4,24 +4,24 @@
 
     <div class="settings-input" ngModelGroup="personal">
       <mat-form-field>
-        <input name="personalOib" matInput type="number" placeholder="OIB" required [ngModel]="settings.personal.personalOib" #personalOibFormControl="ngModel" pattern="^[0-9]{11}$">
+        <input name="personalOib" matInput type="number" placeholder="OIB" required [ngModel]="settings?.personal.personalOib" #personalOibFormControl="ngModel" pattern="^[0-9]{11}$">
         <mat-error *ngIf="personalOibFormControl.hasError('required')">OIB is required.</mat-error>
         <mat-error *ngIf="personalOibFormControl.hasError('pattern')">OIB is not valid.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="streetName" matInput type="text" placeholder="Street Name" required [ngModel]="settings.personal.streetName">
+        <input name="streetName" matInput type="text" placeholder="Street Name" required [ngModel]="settings?.personal.streetName">
         <mat-error>Street Name is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="streetNumber" matInput type="text" placeholder="Street Number" required [ngModel]="settings.personal.streetNumber">
+        <input name="streetNumber" matInput type="text" placeholder="Street Number" required [ngModel]="settings?.personal.streetNumber">
         <mat-error>Street Number is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="postcode" matInput type="text" placeholder="Postcode" required [ngModel]="settings.personal.postcode">
+        <input name="postcode" matInput type="text" placeholder="Postcode" required [ngModel]="settings?.personal.postcode">
         <mat-error>Postcode is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="city" matInput type="text" placeholder="City" required [ngModel]="settings.personal.city" #cityFormControl="ngModel"  >
+        <input name="city" matInput type="text" placeholder="City" required [ngModel]="settings?.personal.city" #cityFormControl="ngModel"  >
         <mat-error>City is required.</mat-error>
       </mat-form-field>
     </div>
@@ -34,15 +34,15 @@
         <input name="cityName" matInput type="text" placeholder="Name" required disabled ngModel [ngModel]="cityFormControl.value" >
       </mat-form-field>
       <mat-form-field>
-        <input name="cityIban" matInput type="text" placeholder="IBAN" required [ngModel]="settings.city.cityIban">
+        <input name="cityIban" matInput type="text" placeholder="IBAN" required [ngModel]="settings?.city.cityIban">
         <mat-error>IBAN is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="cityCode" matInput type="text" placeholder="Code" required [ngModel]="settings.city.cityCode">
+        <input name="cityCode" matInput type="text" placeholder="Code" required [ngModel]="settings?.city.cityCode">
         <mat-error>Code is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="surtax" matInput type="number" placeholder="Surtax" required [ngModel]="settings.city.surtax">
+        <input name="surtax" matInput type="number" placeholder="Surtax" required [ngModel]="settings?.city.surtax">
         <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Surtax is required.</mat-error>
       </mat-form-field>
@@ -53,25 +53,25 @@
     <h2>Company</h2>
     <div class="settings-input">
       <mat-form-field>
-        <input name="companyOib" matInput type="number" placeholder="OIB" required [ngModel]="settings.company.companyOib" #companyOibFormControl="ngModel" pattern="^[0-9]{11}$">
+        <input name="companyOib" matInput type="number" placeholder="OIB" required [ngModel]="settings?.company.companyOib" #companyOibFormControl="ngModel" pattern="^[0-9]{11}$">
         <mat-error *ngIf="companyOibFormControl.hasError('required')">OIB is required.</mat-error>
         <mat-error *ngIf="companyOibFormControl.hasError('pattern')">OIB is not valid.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="companyEmail" matInput type="email" placeholder="E-mail" required email [ngModel]="settings.company.companyEmail" #emailFormControl="ngModel">
+        <input name="companyEmail" matInput type="email" placeholder="E-mail" required email [ngModel]="settings?.company.companyEmail" #emailFormControl="ngModel">
         <mat-error *ngIf="emailFormControl.hasError('required')">Company email is required.</mat-error>
         <mat-error *ngIf="emailFormControl.hasError('email')">Invalid email.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="companyName" matInput type="text" placeholder="Name" required [ngModel]="settings.company.companyName">
+        <input name="companyName" matInput type="text" placeholder="Name" required [ngModel]="settings?.company.companyName">
         <mat-error>Company Name is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="companyStreet" matInput type="text" placeholder="Street" required [ngModel]="settings.company.companyStreet">
+        <input name="companyStreet" matInput type="text" placeholder="Street" required [ngModel]="settings?.company.companyStreet">
         <mat-error>Company Street is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="companyCity" matInput type="text" placeholder="City" required [ngModel]="settings.company.companyCity">
+        <input name="companyCity" matInput type="text" placeholder="City" required [ngModel]="settings?.company.companyCity">
         <mat-error>Company City is required.</mat-error>
       </mat-form-field>
     </div>
@@ -81,44 +81,44 @@
     <h2>Salary</h2>
     <div class="settings-input">
       <mat-form-field>
-        <input name="amount" matInput type="number" placeholder="Amount" required [ngModel]="settings.salary.amount">
+        <input name="amount" matInput type="number" placeholder="Amount" required [ngModel]="settings?.salary.amount">
         <mat-error>Amount is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="currency" matInput type="text" placeholder="Currency" required [ngModel]="settings.salary.currency">
+        <input name="currency" matInput type="text" placeholder="Currency" required [ngModel]="settings?.salary.currency">
         <mat-error>Currency is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="nonTaxableAmount" matInput type="number" placeholder="Non Taxable Amount" required [ngModel]="settings.salary.nonTaxableAmount">
+        <input name="nonTaxableAmount" matInput type="number" placeholder="Non Taxable Amount" required [ngModel]="settings?.salary.nonTaxableAmount">
         <mat-error>Non Taxable Amount is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="salaryTax" matInput type="number" placeholder="Tax" required [ngModel]="settings.salary.salaryTax">
+        <input name="salaryTax" matInput type="number" placeholder="Tax" required [ngModel]="settings?.salary.salaryTax">
         <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Tax is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="healthInsuranceContribution" matInput type="number" placeholder="Health Insurance Contribution" required [ngModel]="settings.salary.healthInsuranceContribution">
+        <input name="healthInsuranceContribution" matInput type="number" placeholder="Health Insurance Contribution" required [ngModel]="settings?.salary.healthInsuranceContribution">
         <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Health Insurance Contribution is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="workSafetyContribution" matInput type="number" placeholder="Work Safety Contribution" required [ngModel]="settings.salary.workSafetyContribution">
+        <input name="workSafetyContribution" matInput type="number" placeholder="Work Safety Contribution" required [ngModel]="settings?.salary.workSafetyContribution">
         <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Work Safety Contribution is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="employmentContribution" matInput type="number" placeholder="Employment Contribution" required [ngModel]="settings.salary.employmentContribution">
+        <input name="employmentContribution" matInput type="number" placeholder="Employment Contribution" required [ngModel]="settings?.salary.employmentContribution">
         <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Employment Contribution is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="pensionPillar1Contribution" matInput type="number" placeholder="Pension Pillar 1 Contribution" required [ngModel]="settings.salary.pensionPillar1Contribution">
+        <input name="pensionPillar1Contribution" matInput type="number" placeholder="Pension Pillar 1 Contribution" required [ngModel]="settings?.salary.pensionPillar1Contribution">
         <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Pension Pillar 1 Contribution is required.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input name="pensionPillar2Contribution" matInput type="number" placeholder="Pension Pillar 2 Contribution" required [ngModel]="settings.salary.pensionPillar2Contribution">
+        <input name="pensionPillar2Contribution" matInput type="number" placeholder="Pension Pillar 2 Contribution" required [ngModel]="settings?.salary.pensionPillar2Contribution">
         <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Pension Pillar 2 Contribution is required.</mat-error>
       </mat-form-field>
@@ -129,7 +129,7 @@
     <h2>Dividend</h2>
     <div class="settings-input">
       <mat-form-field>
-        <input name="dividendTax" matInput type="number" placeholder="Tax" required [ngModel]="settings.dividend.dividendTax">
+        <input name="dividendTax" matInput type="number" placeholder="Tax" required [ngModel]="settings?.dividend.dividendTax">
         <mat-hint>Percentage in decimal number format e.g. 20% = 0.20</mat-hint>
         <mat-error>Tax is required.</mat-error>
       </mat-form-field>
