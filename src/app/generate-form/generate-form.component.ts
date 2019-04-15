@@ -24,7 +24,7 @@ export class GenerateFormComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router
   ) {
-    this.service = this.settingsService.getSettingsInfo();
+    // this.service = this.settingsService.getSettingsInfo();
     this.amount = this.service.salary.amount;
     this.currency = this.service.salary.currency;
   }

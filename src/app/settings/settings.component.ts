@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Settings } from './settings';
+import {
+  CitySettings,
+  CompanySettings,
+  DividendSettings,
+  PersonalSettings,
+  SalarySettings,
+  Settings
+} from './settings';
 import { SettingsService } from './settings.service';
 import { MatSnackBar } from '@angular/material';
 
@@ -16,11 +23,19 @@ export class SettingsComponent implements OnInit {
   constructor(private settingsService: SettingsService, private snackBar: MatSnackBar) {
   }
   ngOnInit() {
-    this.settings = this.settingsService.getSettingsInfo();
+    this.settingsService.getSettingsInfo().subscribe(
+        settingsInfo => {
+          this.settings = settingsInfo;
+        });
   }
 
   onSubmit(value: Settings) {
-    this.settingsService.saveSettingsInfo(value);
-    this.snackBar.open('Saved successfully.', null, { duration: 3000 });
+    this.settingsService.saveSettingsInfo(value).subscribe(() => {
+      this.snackBar.open('Saved successfully.', null, { duration: 3000 });
+    },
+      () => {
+        this.snackBar.open('Error. Failed to save settings.', null, { duration: 3000 });
+      }
+    );
   }
 }
