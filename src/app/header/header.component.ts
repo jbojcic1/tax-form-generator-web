@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { AuthService } from '../core/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Output() toggleSidenav = new EventEmitter<void>();
 
   constructor(public authService: AuthService) {
   }

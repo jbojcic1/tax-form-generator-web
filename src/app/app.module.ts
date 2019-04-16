@@ -6,7 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './header/header.component';
-import { MatButtonModule, MatIconModule, MatMenuModule, MatToolbarModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatListModule,
+  MatMenuModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 import { LoginModule } from './login/login.module';
 import { AccountModule } from './account/account.module';
 import { SettingsModule } from './settings/settings.module';
@@ -31,7 +38,9 @@ import { GenerateFormModule } from './generate-form/generate-form.module';
     AccountModule,
     SettingsModule,
     DashboardModule,
-    GenerateFormModule
+    GenerateFormModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

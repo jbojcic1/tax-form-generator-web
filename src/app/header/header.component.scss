@@ -10,3 +10,18 @@ mat-toolbar a {
 .active-link {
   color: black;
 }
+.links{
+  display: flex;
+}
+.menu-btn{
+  display: none;
+}
+
+@media screen and (max-width: 600px){
+  .menu-btn{
+    display: block;
+  }
+  .links{
+    display: none;
+  }
+}

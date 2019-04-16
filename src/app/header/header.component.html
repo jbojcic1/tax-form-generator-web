@@ -1,7 +1,10 @@
 <mat-toolbar color="warn">
-  <a mat-button routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
-  <a mat-button routerLink="/generate-form" routerLinkActive="active-link">Generate form</a>
-  <a mat-button routerLink="/settings" routerLinkActive="active-link">Settings</a>
+  <button class="menu-btn" mat-icon-button (click)="toggleSidenav.emit()"><mat-icon>menu</mat-icon></button>
+  <div class="links">
+    <a mat-button routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
+    <a mat-button routerLink="/generate-form" routerLinkActive="active-link">Generate form</a>
+    <a mat-button routerLink="/settings" routerLinkActive="active-link">Settings</a>
+  </div>
   <div class="spacer"></div>
   <button mat-button [matMenuTriggerFor]="menu">
     <span>{{authService.loggedInUser.firstName}} {{authService.loggedInUser.lastName}}</span>
