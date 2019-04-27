@@ -14,10 +14,9 @@ export class SettingsService {
   saveSettingsInfo(settingsToSave: Settings): Observable<void> {
     return this.http.post<void>('http://localhost:5000/api/settings', settingsToSave);
   }
+
   getSettingsInfo(): Observable<Settings> {
     return this.http.get<Settings>('http://localhost:5000/api/settings');
   }
-
-
 }
 

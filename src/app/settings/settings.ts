@@ -7,7 +7,7 @@ export interface Settings {
 }
 
 export interface PersonalSettings {
-  personalOib: number;
+  personalOib: string;
   streetName: string;
   streetNumber: string;
   postcode: string;
@@ -22,7 +22,7 @@ export interface CitySettings {
 }
 
 export interface CompanySettings {
-  companyOib: number;
+  companyOib: string;
   companyEmail: string;
   companyName: string;
   companyStreet: string;

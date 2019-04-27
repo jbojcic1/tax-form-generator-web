@@ -4,7 +4,7 @@
 
     <div class="settings-input" ngModelGroup="personal">
       <mat-form-field>
-        <input name="personalOib" matInput type="number" placeholder="OIB" required [ngModel]="settings?.personal.personalOib" #personalOibFormControl="ngModel" pattern="^[0-9]{11}$">
+        <input name="personalOib" matInput type="text" placeholder="OIB" required [ngModel]="settings?.personal.personalOib" #personalOibFormControl="ngModel" pattern="^[0-9]{11}$">
         <mat-error *ngIf="personalOibFormControl.hasError('required')">OIB is required.</mat-error>
         <mat-error *ngIf="personalOibFormControl.hasError('pattern')">OIB is not valid.</mat-error>
       </mat-form-field>
@@ -53,7 +53,7 @@
     <h2>Company</h2>
     <div class="settings-input">
       <mat-form-field>
-        <input name="companyOib" matInput type="number" placeholder="OIB" required [ngModel]="settings?.company.companyOib" #companyOibFormControl="ngModel" pattern="^[0-9]{11}$">
+        <input name="companyOib" matInput type="text" placeholder="OIB" required [ngModel]="settings?.company.companyOib" #companyOibFormControl="ngModel" pattern="^[0-9]{11}$">
         <mat-error *ngIf="companyOibFormControl.hasError('required')">OIB is required.</mat-error>
         <mat-error *ngIf="companyOibFormControl.hasError('pattern')">OIB is not valid.</mat-error>
       </mat-form-field>
