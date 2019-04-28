@@ -1,6 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { SettingsService } from './settings.service';
 import { TestBed } from '@angular/core/testing';
+import { environment } from 'src/environments/environment';
 
 describe('SettingsService', () => {
   let service: SettingsService;
@@ -59,7 +60,7 @@ describe('SettingsService', () => {
         expect(res).toBe(null);
       });
 
-      const req = httpTestingController.expectOne('http://localhost:5000/api/settings');
+      const req = httpTestingController.expectOne(`${environment.backendUrl}/api/settings`);
 
       expect(req.request.method).toEqual('POST');
       expect(req.request.body).toEqual(settings);
@@ -74,7 +75,7 @@ describe('SettingsService', () => {
         expect(res).toEqual(settings);
       });
 
-      const req = httpTestingController.expectOne('http://localhost:5000/api/settings');
+      const req = httpTestingController.expectOne(`${environment.backendUrl}/api/settings`);
 
       expect(req.request.method).toEqual('GET');
 

@@ -10,6 +10,7 @@ import { JwtToken } from './jwt-token';
 import { User } from './user';
 import { Router } from '@angular/router';
 import { RefreshTokenResponse } from './refresh-token-response';
+import { environment } from 'src/environments/environment';
 
 @Injectable ({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class AuthService {
   }
 
   login(credentials: Credentials): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>('http://localhost:5000/api/auth', credentials)
+    return this.http.post<LoginResponse>(`${environment.backendUrl}/api/auth`, credentials)
       .pipe(
         tap(
           (loginResponse: LoginResponse) => {
@@ -66,7 +67,7 @@ export class AuthService {
 
   refreshToken(): Observable<RefreshTokenResponse> {
     const data = { refreshToken: localStorage.getItem('refreshToken') };
-    return this.http.post<RefreshTokenResponse>('http://localhost:5000/api/auth/refresh', data)
+    return this.http.post<RefreshTokenResponse>(`${environment.backendUrl}/api/auth/refresh`, data)
       .pipe(
         tap(
           (response: RefreshTokenResponse) => {

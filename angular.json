@@ -119,8 +119,7 @@
           "options": {
             "cypressConfig": "e2e/cypress.json",
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "devServerTarget": "tax-form-generator-web:serve",
-            "browser": "chrome"
+            "baseUrl": "http://frontend:4200"
           },
           "configurations": {
             "production": {

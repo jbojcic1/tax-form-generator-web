@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Settings } from './settings';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable ({
   providedIn: 'root'
@@ -12,11 +13,11 @@ export class SettingsService {
   }
 
   saveSettingsInfo(settingsToSave: Settings): Observable<void> {
-    return this.http.post<void>('http://localhost:5000/api/settings', settingsToSave);
+    return this.http.post<void>(`${environment.backendUrl}/api/settings`, settingsToSave);
   }
 
   getSettingsInfo(): Observable<Settings> {
-    return this.http.get<Settings>('http://localhost:5000/api/settings');
+    return this.http.get<Settings>(`${environment.backendUrl}/api/settings`);
   }
 }
 

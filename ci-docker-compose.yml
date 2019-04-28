@@ -1,0 +1,36 @@
+version: '3.3'
+
+services:
+  frontend:
+    image: jbojcic/tax-form-generator-web:latest
+    entrypoint: ["npm", "start", "--", "--disable-host-check"]
+    depends_on:
+      - backend
+    links:
+      - backend
+
+  backend:
+    image: jbojcic/tax-form-generator-api:latest
+    depends_on:
+      - database
+    links:
+      - database
+
+  database:
+    image: postgres:9.6.12
+
+  migrations:
+    image: jbojcic/tax-form-generator-api:latest
+    entrypoint: ["dotnet", "ef", "database", "update"]
+    depends_on:
+      - database
+    links:
+      - database
+
+  e2e:
+    image: jbojcic/tax-form-generator-web:e2e
+    # entrypoint: ["sleep", "21312312"]
+    depends_on:
+      - frontend
+    links:
+      - frontend
