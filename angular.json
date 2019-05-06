@@ -119,7 +119,7 @@
           "options": {
             "cypressConfig": "e2e/cypress.json",
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "baseUrl": "http://frontend:4200"
+            "baseUrl": "http://frontend:80"
           },
           "configurations": {
             "production": {
