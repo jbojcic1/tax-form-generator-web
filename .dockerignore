@@ -8,7 +8,7 @@
 /bazel-out
 
 # dependencies
-/node_modules
+#/node_modules we dont want to ignore node_modules, to avoid unnecessary build reinstall
 
 # profiling files
 # todo: make symlink from .dockerignore to .gitignore

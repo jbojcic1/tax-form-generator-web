@@ -2,7 +2,7 @@ FROM node:10 AS builder
 RUN mkdir -p /app
 COPY . /app/
 WORKDIR /app
-RUN npm install
+RUN if [ ! -d "node_modules" ] ; then npm ci ; else echo "Skipping 'npm ci'" ; fi
 RUN npm run build
 
 FROM nginx:1.15.12
