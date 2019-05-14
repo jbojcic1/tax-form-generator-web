@@ -1,5 +1,5 @@
 FROM circleci/node:10-browsers AS builder
-RUN mkdir -p /app
+RUN sudo mkdir -p /app && sudo chown circleci:circleci /app
 COPY . /app/
 WORKDIR /app
 RUN if [ ! -d "node_modules" ] ; then npm ci ; else echo "Skipping 'npm ci'" ; fi
