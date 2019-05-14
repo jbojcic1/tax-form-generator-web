@@ -1,5 +1,5 @@
 FROM circleci/node:10-browsers AS builder
-RUN sudo su -
+USER root
 RUN mkdir -p /app
 COPY . /app/
 WORKDIR /app
