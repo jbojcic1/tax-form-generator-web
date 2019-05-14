@@ -1,9 +1,0 @@
-services:
-  - docker
-
-script:
-  - docker build -t index.docker.io/jbojcic/tax-form-generator-web:latest .
-  - docker build -f e2e.Dockerfile -t index.docker.io/jbojcic/tax-form-generator-web:e2e .
-  - docker login -u jbojcic -p 'd8mUHY7&uuNa'
-  - docker push jbojcic/tax-form-generator-web:latest
-  - docker-compose -f ci-docker-compose.yml up --exit-code-from e2e
