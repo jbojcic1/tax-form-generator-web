@@ -3,7 +3,7 @@ RUN mkdir -p /app
 COPY . /app/
 WORKDIR /app
 RUN if [ ! -d "node_modules" ] ; then npm ci ; else echo "Skipping 'npm ci'" ; fi
-RUN npm run build
+RUN npm run build -- --prod
 
 FROM nginx:1.15.12
 RUN mkdir -p /opt
