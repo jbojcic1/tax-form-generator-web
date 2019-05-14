@@ -1,4 +1,4 @@
-FROM node:10 AS builder
+FROM circleci/node:10-browsers AS builder
 RUN mkdir -p /app
 COPY . /app/
 WORKDIR /app
